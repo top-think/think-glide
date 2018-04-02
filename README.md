@@ -50,8 +50,8 @@ http://youdomain.com/images/user.jpg?w=100&h=100
 
 ### 参数说明
 
-| 参数名 | type | 说明 | 是否必选 |
-| --- | --- | --- |
+| 参数名 | 类型 | 说明 | 是否必选 |
+| --- | --- | --- | --- |
 | source | string | 本地文件夹位置 | 是 |
 | cache| string | 缓存文件位置，默认在 `runtime/glide` 下面| 否 |
 | cacheTime| string | 缓存时间，示例 `+2 days`, 缓存期间多次请求会自动响应 304| 否 |
@@ -103,11 +103,10 @@ echo app('glide.url_builder')->getUrl('user.jpg', ['w' => 100, 'h' => 100]);
 
 ### Quick reference
 
-不止支持裁剪，glide还支持其它操作，只要传递对应参数即可：参考这里查看支持的参数：
+不止支持裁剪，glide还支持其它操作，只要传递对应参数即可，参考这里查看支持的参数：
 
 [http://glide.thephpleague.com/1.0/api/quick-reference/](http://glide.thephpleague.com/1.0/api/quick-reference/)  
 
 ## License
 
 See [MIT](https://opensource.org/licenses/MIT).
-

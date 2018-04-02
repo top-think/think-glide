@@ -11,9 +11,9 @@ class GlideMiddlewareTest extends TestCase
 {
     public function testFactory()
     {
-        $this->assertInstanceOf(GlideMiddleware::class, GlideMiddleware::factory([
-            __DIR__ . '/fixtures/source',
-            __DIR__ . '/fixtures/cache'
+        $this->assertInstanceOf(\Closure::class, GlideMiddleware::factory([
+            'source' => __DIR__ . '/fixtures/source',
+            'cache' => __DIR__ . '/fixtures/cache'
         ]));
     }
 
@@ -22,14 +22,14 @@ class GlideMiddlewareTest extends TestCase
         $request = (new Request())->create('/images/phpdish.png');
 
         $middleware = GlideMiddleware::factory([
-            __DIR__ . '/fixtures/source',
-            __DIR__ . '/fixtures/cache'
+            'source' => __DIR__ . '/fixtures/source',
+            'cache' => __DIR__ . '/fixtures/cache'
         ]);
 
         $response = $middleware($request, function($request){
             return new Response('ok');
         });
 
-        $this->assertEquals(filesize(__DIR__ . '/fixtures/source/phpdish.png'), $response->header('Content-Length'));
+        $this->assertEquals(filesize(__DIR__ . '/fixtures/source/phpdish.png'), $response->getHeader('Content-Length'));
     }
 }

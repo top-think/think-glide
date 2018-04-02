@@ -13,13 +13,12 @@
 
     <testsuites>
         <testsuite name="Version Test Suite">
-            <directory>./tests/TestCase</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <blacklist>
-            <directory suffix=".php">./docs</directory>
             <directory suffix=".php">./vendor</directory>
             <directory suffix=".php">./tests</directory>
             <file>./tests/bootstrap.php</file>

@@ -11,10 +11,8 @@
 
 ## Requirements
 
-* ThinkPHP >=5.1.6
+* ThinkPHP >=5.1.0
 * PHP >=5.6.0
-
-本库基于 Middleware 功能所以要求 ThinkPHP 版本至少为 5.1.6。
 
 ## Installation
 
@@ -28,18 +26,44 @@ $ composer require slince/think-glide
 
 ### Quick start
 
-打开 `application/middleware.php` 文件（如果不存在创建即可），注册 middleware：
+由于从 ThinkPHP 5.1.6 开始添加了中间件的功能，所以在
+ 
+- ThinkPHP 5.1.6 及以上版本使用 middleware 注册：
 
-```php
-return [
-    //...
+    打开 `application/middleware.php` 文件（如果不存在创建即可），注册 middleware：
+    
+    ```php
+    return [
+        //...
+    
+        \Slince\Glide\GlideMiddleware::factory([
+            'source' => __DIR__ . '/../img',
+        ])
+    ];
+    ```
+    
+    这种方式比较简单，也是推荐的方式；
 
-    \Slince\Glide\GlideMiddleware::factory([
-        'source' => __DIR__ . '/../img',
-    ])
-];
-```
-`source` 是你本地图片文件夹位置，假设该目录下有图片 `user.jpg`, 打开浏览器访问下面链接：
+- ThinkPHP 5.1.0 以上 5.1.6 以下版本：
+
+    不支持middleware，所以启用过程要复杂一点，我们用下面方式来妥协：
+    
+    ```php
+    // 在 /route/route.php 注册下面路由
+    Route::get('images/:file', 'index/handleImage');
+    
+    //在控制器 index 里创建action
+    
+    $middleware = \Slince\Glide\GlideMiddleware::factory([
+        'source' => App::getRootPath() . '/img',
+    ]);
+    
+    return $middleware(app('request'), function(){
+        return app('response');
+    });
+    ```
+
+`source` 是你本地图片文件夹的位置，假设该目录下有图片 `user.jpg`, 打开浏览器访问下面链接：
  
 ```
 http://youdomain.com/images/user.jpg?w=100&h=100

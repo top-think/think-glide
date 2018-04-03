@@ -1,9 +1,9 @@
 # ThinkPHP 图片动态裁剪缩放库
 
-[![Build Status](https://img.shields.io/travis/slince/think-glide/master.svg?style=flat-square)](https://travis-ci.org/slince/think-glide)
-[![Coverage Status](https://img.shields.io/codecov/c/github/slince/think-glide.svg?style=flat-square)](https://codecov.io/github/slince/think-glide)
+[![Build Status](https://img.shields.io/travis/top-think/think-glide/master.svg?style=flat-square)](https://travis-ci.org/top-think/think-glide)
+[![Coverage Status](https://img.shields.io/codecov/c/github/top-think/think-glide.svg?style=flat-square)](https://codecov.io/github/top-think/think-glide)
 [![Latest Stable Version](https://img.shields.io/packagist/v/slince/think-glide.svg?style=flat-square&label=stable)](https://packagist.org/packages/slince/think-glide)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/slince/think-glide.svg?style=flat-square)](https://scrutinizer-ci.com/g/slince/think-glide/?branch=master)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/top-think/think-glide.svg?style=flat-square)](https://scrutinizer-ci.com/g/top-think/think-glide/?branch=master)
 
 [Glide](https://github.com/thephpleague/glide) 是一个可以帮助你根据指定参数动态的生成图片内容给浏览器的图片操作库，从而实现
 图片动态裁剪，打水印等，本库对 Glide 进行了一些友好的包装与扩展，屏蔽了原生库的一些底层抽象从而使得 ThinkPHP 用户可以在 ThinkPHP 项目中

@@ -16,7 +16,7 @@
 
 ## Installation
 
-执行下面命令安装本库
+执行下面命令安装:
 
 ```bash
 $ composer require slince/think-glide
@@ -81,6 +81,7 @@ http://youdomain.com/images/user.jpg?w=100&h=100
 | cacheTime| string | 缓存时间，示例 `+2 days`, 缓存期间多次请求会自动响应 304| 否 |
 | signKey | string | 安全签名 | 否 | 
 | onException | callable | 异常处理handler | 否 | 
+| baseUrl | string | 路由前缀，匹配到该前缀时中间件开始执行，默认是 `/images` | 否 | 
 
 ### 安全签名
 

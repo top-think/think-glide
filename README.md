@@ -73,7 +73,7 @@ http://youdomain.com/images/user.jpg?w=100&h=100
 ```php
 echo app('glide.url_builder')->getUrl('user.jpg', ['w' => 100, 'h' => 100]);
 
-//你会得到如下链接：/images/cat.jpg?w=100&h=100&s=af3dc18fc6bfb2afb521e587c348b904
+//你会得到如下链接：/images/user.jpg?w=100&h=100&s=af3dc18fc6bfb2afb521e587c348b904
 ```
 
 ### 异常处理

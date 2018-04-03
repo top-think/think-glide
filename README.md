@@ -109,7 +109,7 @@ echo app('glide.url_builder')->getUrl('user.jpg', ['w' => 100, 'h' => 100]);
     'onException' => function(\Exception $exception, $request, $server){
     
         if ($exception instanceof \League\Glide\Signatures\SignatureException) {
-            $response = new Response('签名错误', 500);
+            $response = new Response('签名错误', 403);
         } else {
             $response = new Response(sprintf('你访问的资源 "%s" 不存在', $request->path()), 404);
         }

@@ -9,11 +9,6 @@
 图片动态裁剪，打水印等，本库对 Glide 进行了一些友好的包装与扩展，屏蔽了原生库的一些底层抽象从而使得 ThinkPHP 用户可以在 ThinkPHP 项目中
 更好的添加图片的动态裁剪功能。
 
-## Requirements
-
-* ThinkPHP >=5.1.0
-* PHP >=5.6.0
-
 ## Installation
 
 执行下面命令安装:
@@ -21,6 +16,11 @@
 ```bash
 $ composer require slince/think-glide
 ```
+
+## Requirements
+
+* ThinkPHP >=5.1.0
+* PHP >=5.6.0
 
 ## Usage
 
@@ -131,6 +131,10 @@ echo app('glide.url_builder')->getUrl('user.jpg', ['w' => 100, 'h' => 100]);
 不止支持裁剪，glide还支持其它操作，只要传递对应参数即可，参考这里查看支持的参数：
 
 [http://glide.thephpleague.com/1.0/api/quick-reference/](http://glide.thephpleague.com/1.0/api/quick-reference/)  
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md)
 
 ## License
 

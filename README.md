@@ -1,13 +1,11 @@
-# ThinkPHP 图片动态裁剪、缩放库
+# ThinkPHP 图片动态裁剪缩放库
 
-[![Build Status](https://img.shields.io/travis/slince/think-glide/master.svg?style=flat-square)](https://travis-ci.org/slince/think-glide) 
-[![Coverage Status](https://img.shields.io/coveralls/slince/think-glide.svg?style=flat-square)](https://coveralls.io/r/slince/think-glide?branch=master) 
-[![Total Downloads](https://img.shields.io/packagist/dt/slince/think-glide.svg?style=flat-square)](https://packagist.org/packages/slince/think-glide) 
-[![Latest Stable Version](https://img.shields.io/packagist/v/slince/think-glide.svg?style=flat-square)](https://packagist.org/packages/slince/think-glide) 
-[![MIT License](https://img.shields.io/packagist/l/slince/think-glide.svg?style=flat-square)](https://packagist.org/packages/slince/think-glide)
+[![Build Status](https://img.shields.io/travis/slince/think-glide/master.svg?style=flat-square)](https://travis-ci.org/slince/think-glide)
+[![Coverage Status](https://img.shields.io/codecov/c/github/slince/think-glide.svg?style=flat-square)](https://codecov.io/github/slince/think-glide)
+[![Latest Stable Version](https://img.shields.io/packagist/v/slince/think-glide.svg?style=flat-square&label=stable)](https://packagist.org/packages/slince/think-glide)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/slince/think-glide.svg?style=flat-square)](https://scrutinizer-ci.com/g/slince/think-glide/?branch=master)
 
-[Glide](https://github.com/thephpleague/glide) 是一个图片操作库，可以帮助你根据指定参数动态的生成图片内容给浏览器，从而实现
+[Glide](https://github.com/thephpleague/glide) 是一个可以帮助你根据指定参数动态的生成图片内容给浏览器的图片操作库，从而实现
 图片动态裁剪，打水印等，本库对 Glide 进行了一些友好的包装与扩展，屏蔽了原生库的一些底层抽象从而使得 ThinkPHP 用户可以在 ThinkPHP 项目中
 更好的添加图片的动态裁剪功能。
 
@@ -16,7 +14,7 @@
 * ThinkPHP >=5.1.6
 * PHP >=5.6.0
 
-本库基于 middleware 功能所以要求 ThinkPHP 版本至少为 5.1.6。
+本库基于 Middleware 功能所以要求 ThinkPHP 版本至少为 5.1.6。
 
 ## Installation
 
@@ -26,7 +24,7 @@
 $ composer require slince/think-glide
 ```
 
-## USAGE
+## Usage
 
 ### Quick start
 

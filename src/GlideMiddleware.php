@@ -28,6 +28,11 @@ class GlideMiddleware
      */
     protected $options;
 
+    /**
+     * @var array
+     */
+    protected $query;
+
     public function __construct(array $options = [])
     {
         $resolver = new OptionsResolver();
@@ -55,6 +60,8 @@ class GlideMiddleware
     public function __invoke(Request $request, $next)
     {
         $uri = urldecode($request->path());
+        parse_str($request->query(), $this->query);
+
         if (!preg_match("#^{$this->options['baseUrl']}#", '/'.$uri)) {
             return $next($request);
         }
@@ -98,7 +105,7 @@ class GlideMiddleware
         if (null === $server->getResponseFactory()) {
             $server->setResponseFactory(new ResponseFactory());
         }
-        $response = $server->getImageResponse($request->path(), $_GET);
+        $response = $server->getImageResponse($request->path(), $this->query);
 
         return $this->applyCacheHeaders($response, $modifiedTime);
     }
@@ -142,6 +149,7 @@ class GlideMiddleware
     protected function isNotModified(Request $request, $modifiedTime)
     {
         $modifiedSince = $request->header('If-Modified-Since');
+
         if (!$modifiedSince) {
             return false;
         }
@@ -161,7 +169,7 @@ class GlideMiddleware
         }
         SignatureFactory::create($this->options['signKey'])->validateRequest(
             $uri,
-            $_GET
+            $this->query
         );
     }
 
@@ -186,9 +194,8 @@ class GlideMiddleware
      */
     public static function factory($options)
     {
-        return function(Request $request, $next) use ($options){
-            $middleware = new GlideMiddleware($options);
-
+        $middleware = new GlideMiddleware($options);
+        return function(Request $request, $next) use ($middleware){
             return $middleware($request, $next);
         };
     }

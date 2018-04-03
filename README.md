@@ -17,11 +17,6 @@
 $ composer require slince/think-glide
 ```
 
-## Requirements
-
-* ThinkPHP >=5.1.0
-* PHP >=5.6.0
-
 ## Usage
 
 ### Quick start

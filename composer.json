@@ -1,9 +1,8 @@
 {
     "name": "slince/think-glide",
-    "description": "ThinkPHP plugin for using Glide image manipulation library",
+    "description": "ThinkPHP adapter for using Glide image manipulation library",
     "type": "library",
     "keywords": ["thinkphp", "glide", "think-glide", "thinkphp-glide"],
-    "homepage": "https://github.com/slince/think-glide",
     "license": "MIT",
     "authors": [
         {

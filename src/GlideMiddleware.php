@@ -194,7 +194,8 @@ class GlideMiddleware
      */
     public static function factory($options)
     {
-        $middleware = new GlideMiddleware($options);
+        $middleware = new self($options);
+
         return function(Request $request, $next) use ($middleware){
             return $middleware($request, $next);
         };

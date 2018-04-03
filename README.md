@@ -50,17 +50,19 @@ $ composer require slince/think-glide
     
     ```php
     // 在 /route/route.php 注册下面路由
-    Route::get('images/:file', 'index/handleImage');
+    Route::get('images/:file', 'index/handleImageRequest');
     
     //在控制器 index 里创建action
-    
-    $middleware = \Slince\Glide\GlideMiddleware::factory([
-        'source' => App::getRootPath() . '/img',
-    ]);
-    
-    return $middleware(app('request'), function(){
-        return app('response');
-    });
+    public function handleImageRequest()
+    {
+        $middleware = \Slince\Glide\GlideMiddleware::factory([
+            'source' => App::getRootPath() . '/img',
+        ]);
+        
+        return $middleware(app('request'), function(){
+            return app('response');
+        });
+    }
     ```
 
 `source` 是你本地图片文件夹的位置，假设该目录下有图片 `user.jpg`, 打开浏览器访问下面链接：

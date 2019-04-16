@@ -59,7 +59,7 @@ class GlideMiddleware
 
     public function __invoke(Request $request, $next)
     {
-        $uri = urldecode($request->path());
+        $uri = urldecode($request->app() . '/' . $request->path());
         parse_str($request->query(), $this->query);
 
         if (!preg_match("#^{$this->options['baseUrl']}#", '/'.$uri)) {
@@ -116,10 +116,12 @@ class GlideMiddleware
         $maxAge = $expire - time();
 
         return $response
-            ->header('Cache-Control', 'public,max-age='.$maxAge)
-            ->header('Date', gmdate('D, j M Y G:i:s \G\M\T', time()))
-            ->header('Last-Modified', gmdate('D, j M Y G:i:s \G\M\T', (int) $modifiedTime))
-            ->header('Expires', gmdate('D, j M Y G:i:s \G\M\T', $expire));
+            ->header([
+                'Cache-Control' => 'public,max-age='.$maxAge,
+                'Date' => gmdate('D, j M Y G:i:s \G\M\T', time()),
+                'Last-Modified' => gmdate('D, j M Y G:i:s \G\M\T', (int) $modifiedTime),
+                'Expires' => gmdate('D, j M Y G:i:s \G\M\T', $expire)
+            ]);
     }
 
     /**

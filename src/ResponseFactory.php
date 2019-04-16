@@ -34,8 +34,10 @@ class ResponseFactory implements ResponseFactoryInterface
 
         $response = new Response();
         $response->data(stream_get_contents($cache->readStream($path)))
-            ->header('Content-Type', $contentType)
-            ->header('Content-Length', $contentLength);
+            ->header([
+                'Content-Type' => $contentType,
+                'Content-Length' => $contentLength
+            ]);
 
         return $response;
     }
